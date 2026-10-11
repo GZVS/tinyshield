@@ -1,0 +1,9 @@
+TinyShield 3.1.1 requires no account, subscription or paid feature.
+Adult and gambling filters are off initially. Enable them in the toolbar popup and grant the requested HTTP/HTTPS website access.
+Open Test blocking from the popup or Settings. Check protection, website access and filter activation. Click Test adult blocking and Test gambling blocking in turn.
+First use Check adult page and Check gambling page to verify local rendering independently. Their Passed results cannot count as a website redirect. Use a normal window first; explicitly allow the extension in InPrivate before testing there. Settings are shared within the profile and test results are separate by context.
+Each test uses a reserved .test address inside the packaged static list. A blue local page should show This site is blocked, the correct category and Visit GZVS on GitHub. Return to Test blocking to see Passed.
+Preview page checks the local design without testing the network redirect.
+Pause protection and check controls. Website exceptions bypass all TinyShield filters. Optional page cleanup and YouTube rules are in Settings; YouTube filtering is experimental.
+The sidebar is optional; popup/Settings/network protection continue if it is unavailable. The donation button opens PayPal only on user click and all filters remain free.
+No browsing logs, analytics, remote executable code or runtime list downloads are used. Only user-started test state is held in session storage. Export diagnostics saves a local file when clicked and transmits nothing automatically.

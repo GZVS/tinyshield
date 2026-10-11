@@ -1,0 +1,10 @@
+[
+  {"id":1001,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/pagead/"}},
+  {"id":1002,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/api/stats/ads"}},
+  {"id":1003,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/get_midroll_info"}},
+  {"id":1004,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/ads/"}},
+  {"id":1005,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||googleads.g.doubleclick.net/pagead/"}},
+  {"id":1006,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/ad_data"}},
+  {"id":1007,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/youtubei/v1/player/ad_break"}},
+  {"id":1008,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/ptracking"}}
+]

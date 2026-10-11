@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TinyShield</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="sidepanel">
+    <main class="panel">
+      <header class="brand">
+        <img src="assets/shield.svg" alt="" />
+        <div>
+          <h1>TinyShield</h1>
+          <p class="tagline">A quieter, safer browser</p>
+        </div>
+      </header>
+      <section class="main-controls" aria-label="Blocking controls">
+        <label class="control-row"
+          ><img src="assets/ads.svg" alt="" /><span class="control-label"
+            >Block ads</span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="adsEnabled"
+              aria-label="Block ads" /><span></span></span></label
+        ><label class="control-row"
+          ><img src="assets/adult.svg" alt="" /><span class="control-label"
+            >Block adult sites</span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="adultEnabled"
+              aria-label="Block adult sites" /><span></span></span></label
+        ><label class="control-row"
+          ><img src="assets/gambling.svg" alt="" /><span class="control-label"
+            >Block gambling sites</span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="gamblingEnabled"
+              aria-label="Block gambling sites" /><span></span></span
+        ></label>
+      </section>
+      <button id="protection" class="protection" type="button">
+        <img src="assets/status.svg" alt="" /><span id="protection-label"
+          >Loading protection…</span
+        >
+      </button>
+      <p class="feedback" id="feedback" role="status" aria-live="polite">
+        Adult and gambling filters need website access.
+      </p>
+      <footer class="popup-footer">
+        <button id="settings-button" class="text-button" type="button">
+          <img src="assets/settings.svg" alt="" />Settings</button
+        ><a
+          class="donate"
+          href="https://www.paypal.com/paypalme/Zacharidis"
+          target="_blank"
+          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          ><img src="assets/heart.svg" alt="" />Donate via PayPal</a
+        >
+      </footer>
+      <nav class="fine-links" aria-label="More information">
+        <a href="diagnostics.html" target="_blank" rel="noopener">Test blocking</a>
+        <a href="privacy.html" target="_blank" rel="noopener">Privacy</a
+        ><a
+          href="https://github.com/GZVS"
+          target="_blank"
+          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          >GZVS on GitHub</a
+        >
+      </nav>
+    </main>
+    <script type="module" src="controls.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "source": "https://github.com/blocklistproject/Lists",
+  "format": "Bundled main-frame redirect rules; no runtime downloads.",
+  "categories": {
+    "adult": {
+      "snapshot_url": "https://raw.githubusercontent.com/blocklistproject/Lists/main/alt-version/porn-nl.txt",
+      "upstream_modified": "2026-07-18 01:36:51 UTC",
+      "sha256": "5e876678921406025032ac6fa9908cfce98216f6af0f7c0cd8e74a334b232dd4",
+      "source_domains": 953393,
+      "validated_domains": 953197,
+      "domain_conditions": 936979,
+      "rules": 937,
+      "excluded_invalid_or_protected": 196,
+      "test_domain": "adult.tinyshield.test",
+      "test_domains": 1
+    },
+    "gambling": {
+      "snapshot_url": "https://raw.githubusercontent.com/blocklistproject/Lists/main/alt-version/gambling-nl.txt",
+      "upstream_modified": "2026-07-06 00:51:35 UTC",
+      "sha256": "25a78dfe5f68dded2f52e8c6eb711a6693750d8bc7bde750ecc6044b04c66888",
+      "source_domains": 278856,
+      "validated_domains": 278856,
+      "domain_conditions": 278852,
+      "rules": 279,
+      "excluded_invalid_or_protected": 0,
+      "test_domain": "gambling.tinyshield.test",
+      "test_domains": 1
+    }
+  }
+}

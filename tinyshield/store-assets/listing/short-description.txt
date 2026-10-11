@@ -1,0 +1,1 @@
+Block common ads and trackers, plus adult and gambling sites. Local filtering, simple controls, and optional page cleanup.

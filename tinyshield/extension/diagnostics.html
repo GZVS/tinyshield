@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TinyShield Blocking Tests</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="options diagnostics">
+    <main>
+      <header class="brand">
+        <img src="assets/shield.svg" alt="" />
+        <div><h1>Test blocking</h1><p class="tagline">A quick check. A harmless test.</p></div>
+      </header>
+      <section class="settings-section">
+        <h2>Before you test</h2>
+        <p class="section-intro">Enable adult and gambling blocking in Settings, grant website access, and keep Protection on.</p>
+        <ul id="health-checks" class="health-checks"><li>Checking your browser…</li></ul>
+        <div class="test-actions">
+          <a class="button secondary" href="options.html">Settings</a>
+          <button class="button secondary" id="refresh-checks" type="button">Check again</button>
+          <button class="button" id="repair-filters" type="button">Repair filters</button>
+        </div>
+      </section>
+      <section class="settings-section">
+        <h2>Check page loading first</h2>
+        <p class="section-intro">These checks open TinyShield's local pages without visiting a website. They work even with site filters off. A pass here confirms page loading only.</p>
+        <article class="test-card">
+          <h3>Adult blocked page</h3>
+          <button class="button secondary" data-page-test="adult" type="button">Check adult page</button>
+          <p id="adult-page-result" class="test-result" role="status" aria-live="polite">Not tested</p>
+        </article>
+        <article class="test-card">
+          <h3>Gambling blocked page</h3>
+          <button class="button secondary" data-page-test="gambling" type="button">Check gambling page</button>
+          <p id="gambling-page-result" class="test-result" role="status" aria-live="polite">Not tested</p>
+        </article>
+      </section>
+      <section class="settings-section">
+        <h2>Try each blocked page</h2>
+        <p class="section-intro">Each test opens a reserved .test address in a new tab. TinyShield should redirect it to “This site is blocked” before the address loads.</p>
+        <article class="test-card">
+          <h3>Adult content</h3>
+          <p><code>adult.tinyshield.test</code></p>
+          <p id="adult-ready" class="section-intro">Checking…</p>
+          <div class="test-actions"><button class="button" data-test="adult" type="button" disabled>Test adult blocking</button><a class="button secondary" href="blocked-adult.html?preview=1" target="_blank" rel="noopener">Preview page</a></div>
+          <p id="adult-result" class="test-result" role="status" aria-live="polite">Not tested</p>
+        </article>
+        <article class="test-card">
+          <h3>Gambling</h3>
+          <p><code>gambling.tinyshield.test</code></p>
+          <p id="gambling-ready" class="section-intro">Checking…</p>
+          <div class="test-actions"><button class="button" data-test="gambling" type="button" disabled>Test gambling blocking</button><a class="button secondary" href="blocked-gambling.html?preview=1" target="_blank" rel="noopener">Preview page</a></div>
+          <p id="gambling-result" class="test-result" role="status" aria-live="polite">Not tested</p>
+        </article>
+      </section>
+      <section class="settings-section note"><p>If a test tab shows a browser error or stays blank, return here and check its result. Preview opens the local page directly; it checks appearance without proving a website redirect. Another blocker or a browser policy can override TinyShield.</p></section>
+      <p id="diagnostic-feedback" class="feedback" role="status" aria-live="polite"></p>
+      <footer><button class="text-button" id="export-diagnostics" type="button">Export diagnostics</button><a href="privacy.html">Privacy policy</a><span id="diagnostic-version"></span><span id="diagnostic-context"></span></footer>
+    </main>
+    <script type="module" src="diagnostics.js"></script>
+  </body>
+</html>

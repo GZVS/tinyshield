@@ -1,0 +1,1 @@
+TinyShield helps users filter unwanted browser requests and optionally prevent top-level navigation to adult and gambling domains, using local packaged rules and user-controlled exceptions.

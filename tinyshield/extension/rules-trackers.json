@@ -1,0 +1,22 @@
+[
+  {"id":2001,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||google-analytics.com^"}},
+  {"id":2002,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||googletagmanager.com^"}},
+  {"id":2003,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||analytics.google.com^"}},
+  {"id":2004,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||clarity.ms^"}},
+  {"id":2005,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||demdex.net^"}},
+  {"id":2006,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||everesttech.net^"}},
+  {"id":2007,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||sstats.adobe.com^"}},
+  {"id":2008,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||assets.adobedtm.com^"}},
+  {"id":2009,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||c.bing.com^"}},
+  {"id":2020,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"analytics.js","resourceTypes":["script"]}},
+  {"id":2018,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||analyticsengine.s3.amazonaws.com^"}},
+  {"id":2019,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||analytics.s3.amazonaws.com^"}},
+  {"id":2010,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||udcm.yahoo.com^"}},
+  {"id":2011,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||analytics.query.yahoo.com^"}},
+  {"id":2012,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||gemini.yahoo.com^"}},
+  {"id":2013,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||log.fc.yahoo.com^"}},
+  {"id":2014,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||partnerads.ysm.yahoo.com^"}},
+  {"id":2015,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||beap-bc.yahoo.com^"}},
+  {"id":2016,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adtech.yahoo-inc.com^"}},
+  {"id":2017,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||udc.yahoo.com^"}}
+]

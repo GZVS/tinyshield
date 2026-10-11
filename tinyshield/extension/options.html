@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TinyShield Settings</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="options">
+    <main>
+      <header class="brand">
+        <img src="assets/shield.svg" alt="" />
+        <div>
+          <h1>TinyShield Settings</h1>
+          <p class="tagline">Simple controls. Your choices.</p>
+        </div>
+        <a
+          class="donate"
+          href="https://www.paypal.com/paypalme/Zacharidis"
+          target="_blank"
+          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          ><img src="assets/heart.svg" alt="" />Donate via PayPal</a
+        >
+      </header>
+      <section class="settings-section">
+        <h2>Choose what to block</h2>
+        <p class="section-intro">
+          Site blocking is optional. Your browser asks for website access when you
+          enable it.
+        </p>
+        <label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Protection</strong>
+            <p>Pause or resume every TinyShield filter.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="enabled"
+              aria-label="Protection" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Block ads</strong>
+            <p>
+              Packaged rules for common ad networks and ad-script requests.
+            </p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="adsEnabled"
+              aria-label="Block ads" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Block trackers</strong>
+            <p>
+              Packaged rules for common analytics and tracking endpoints.
+            </p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="trackersEnabled"
+              aria-label="Block trackers" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Block adult sites</strong>
+            <p>
+              Blocks top-level visits to domains on the bundled adult list.
+              Needs website access.
+            </p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="adultEnabled"
+              aria-label="Block adult sites" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Block gambling sites</strong>
+            <p>
+              Blocks top-level visits to domains on the bundled gambling list.
+              Needs website access.
+            </p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="gamblingEnabled"
+              aria-label="Block gambling sites" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Hide ad placeholders</strong>
+            <p>
+              Optional page cleanup. Needs website access; reload open pages
+              after enabling.
+            </p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="cosmeticEnabled"
+              aria-label="Hide ad placeholders" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong
+              >YouTube filter <span class="pill">Experimental</span></strong
+            >
+            <p>
+              Optional best-effort network rules. Some ads may remain; playback
+              can be affected.
+            </p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="youtubeEnabled"
+              aria-label="YouTube filter" /><span></span></span
+        ></label>
+      </section>
+      <section class="settings-section">
+        <h2>Allowed websites</h2>
+        <p class="section-intro">
+          Allow a domain and its subdomains through
+          <strong>all</strong> TinyShield filters, including adult and gambling
+          blocking. Add only websites you trust.
+        </p>
+        <form id="allow-form" class="allow-form">
+          <input
+            id="domain-input"
+            type="text"
+            placeholder="example.com"
+            aria-label="Website domain"
+            autocomplete="off"
+            spellcheck="false"
+            inputmode="url"
+          /><button class="primary" type="submit">Add website</button>
+        </form>
+        <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+        <ul
+          id="allowed-sites"
+          class="site-list"
+          aria-label="Allowed websites"
+        ></ul>
+        <p id="allow-empty" class="empty">No allowed websites yet.</p>
+      </section>
+      <section class="settings-section note">
+        <p>
+          Filtering happens on your device. No accounts, browsing logs,
+          analytics, or remote list downloads. Domain lists can miss sites or
+          include mistakes. TinyShield is not a locked parental-control system
+          or a replacement for browser security.
+        </p>
+      </section>
+      <footer>
+        <a href="diagnostics.html">Test blocking</a>
+        <button id="open-panel" class="text-button" type="button">
+          Open side panel</button
+        ><a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a
+        ><a
+          href="https://github.com/GZVS"
+          target="_blank"
+          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          >GZVS on GitHub</a
+        ><a href="mailto:zsgeorgios@icloud.com">Contact</a
+        ><span>Version 3.1.0</span>
+      </footer>
+    </main>
+    <script type="module" src="controls.js"></script>
+  </body>
+</html>

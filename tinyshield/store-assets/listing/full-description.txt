@@ -1,0 +1,28 @@
+A quieter browser, with simple controls.
+
+TinyShield blocks common ad and tracker requests and lets you choose whether to block adult and gambling websites. A clean blue popup puts the main controls one click away.
+
+FEATURES
+• Separate switches for ads, adult sites and gambling sites.
+• Local blocked-site pages with a clear category and a Go back button.
+• Detailed settings for trackers, page cleanup and the experimental YouTube filter.
+• Website exceptions when you want to allow a domain through every TinyShield filter.
+• Optional side-panel controls while you browse.
+• Open-source code and optional PayPal donations. All features remain free.
+
+LOCAL BY DESIGN
+Rules and preferences stay in your browser. TinyShield has no developer backend, analytics, browsing-history logs or automatic remote list downloads. Adult and gambling domain lists are packaged with the extension and refreshed through releases.
+
+YOUR CHOICE
+Adult and gambling filters are off until you enable them. Your browser asks for website access when these features or page cleanup need it. You can pause all filters, change each category, revoke website access or remove the extension whenever you choose.
+
+PLEASE KNOW
+Domain lists can miss sites or include mistakes. Category blocking covers listed top-level website visits; it does not scan images, classify page content or filter every search result. Allowed websites bypass all TinyShield filters. TinyShield is not a locked parental-control product or a comprehensive malware-protection tool. Some ads may remain, and the optional YouTube filter is experimental and can affect playback.
+
+Support and privacy questions: zsgeorgios@icloud.com
+Developer: GZVS — GZ - Your friendly developer
+GitHub: https://github.com/GZVS
+Optional donations: https://www.paypal.com/paypalme/Zacharidis
+
+TEST BLOCKING
+The built-in test screen checks website access and actual rule activation. Try reserved test addresses, preview each local blocked page, repair filters or export diagnostics. A successful test confirms the redirected page rendered; no real adult or gambling site is visited.

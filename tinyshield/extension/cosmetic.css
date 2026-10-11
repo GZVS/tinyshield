@@ -1,0 +1,16 @@
+html[data-tinyshield-cleanup="on"] .adsbox,
+html[data-tinyshield-cleanup="on"] .ad-banner,
+html[data-tinyshield-cleanup="on"] #ad-container,
+html[data-tinyshield-cleanup="on"] .adsbygoogle,
+html[data-tinyshield-cleanup="on"] .google-ad,
+html[data-tinyshield-cleanup="on"] [id^="google_ads_"],
+html[data-tinyshield-cleanup="on"] [id^="div-gpt-ad"],
+html[data-tinyshield-cleanup="on"] .ad-slot,
+html[data-tinyshield-cleanup="on"] .ad-unit,
+html[data-tinyshield-cleanup="on"] .advertisement,
+html[data-tinyshield-cleanup="on"] .advertising-banner,
+html[data-tinyshield-cleanup="on"] [data-ad],
+html[data-tinyshield-cleanup="on"] [data-ad-slot] {
+  display: none !important;
+  visibility: hidden !important;
+}

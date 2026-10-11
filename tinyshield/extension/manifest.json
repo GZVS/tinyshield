@@ -1,0 +1,93 @@
+{
+  "manifest_version": 3,
+  "name": "TinyShield \u2014 Ads & Website Blocker",
+  "short_name": "TinyShield",
+  "version": "3.1.1",
+  "incognito": "split",
+  "minimum_chrome_version": "116",
+  "description": "Block common ads and trackers, plus adult and gambling sites. Local filtering, simple controls, and optional page cleanup.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "sidePanel",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Open TinyShield",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "web_ads",
+        "enabled": true,
+        "path": "rules-web-ads.json"
+      },
+      {
+        "id": "trackers",
+        "enabled": true,
+        "path": "rules-trackers.json"
+      },
+      {
+        "id": "youtube_ads",
+        "enabled": false,
+        "path": "rules-youtube.json"
+      },
+      {
+        "id": "adult_sites",
+        "enabled": false,
+        "path": "rules-adult.json"
+      },
+      {
+        "id": "gambling_sites",
+        "enabled": false,
+        "path": "rules-gambling.json"
+      }
+    ]
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked-adult.html",
+        "blocked-gambling.html",
+        "ui.css",
+        "blocked.js",
+        "assets/shield.svg"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "use_dynamic_url": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
