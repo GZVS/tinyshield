@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>TinyShield Blocking Tests</title>
+    <title>Zenith Guard Blocking Tests</title>
     <link rel="stylesheet" href="ui.css" />
   </head>
   <body class="options diagnostics">
     <main>
       <header class="brand">
-        <img src="assets/shield.svg" alt="" />
-        <div><h1>Test blocking</h1><p class="tagline">A quick check. A harmless test.</p></div>
+        <img src="assets/shield.svg" alt="Zenith Guard" />
+        <div><h1>Test blocking</h1><p class="tagline">Zenith Guard diagnostic check</p></div>
       </header>
       <section class="settings-section">
         <h2>Before you test</h2>
-        <p class="section-intro">Enable site blocking and extensive protection in Settings, grant website access, and keep Protection on.</p>
+        <p class="section-intro">Keep Master Protection active in Settings to run diagnostic redirects.</p>
         <ul id="health-checks" class="health-checks"><li>Checking your browser…</li></ul>
         <div class="test-actions">
           <a class="button secondary" href="options.html">Settings</a>
@@ -24,7 +24,7 @@
       </section>
       <section class="settings-section">
         <h2>Check page loading first</h2>
-        <p class="section-intro">These checks open TinyShield's local pages without visiting a website. They work even with site filters off. A pass here confirms page loading only.</p>
+        <p class="section-intro">These checks open Zenith Guard's local pages without visiting an external website. They confirm offline asset integrity.</p>
         <article class="test-card">
           <h3>Adult blocked page</h3>
           <button class="button secondary" data-page-test="adult" type="button">Check adult page</button>
@@ -66,7 +66,7 @@
           <p id="security-result" class="test-result" role="status" aria-live="polite">Not tested</p>
         </article>
       </section>
-      <section class="settings-section note"><p>If a test tab shows a browser error or stays blank, return here and check its result. Preview opens the local page directly; it checks appearance without proving a website redirect. Another blocker or a browser policy can override TinyShield.</p></section>
+      <section class="settings-section note"><p>If a test tab shows a browser error or stays blank, return here and check its result. Preview opens the local page directly; it checks appearance without proving a website redirect. Another blocker or a browser policy can override Zenith Guard.</p></section>
       <p id="diagnostic-feedback" class="feedback" role="status" aria-live="polite"></p>
       <footer><button class="text-button" id="export-diagnostics" type="button">Export diagnostics</button><a href="privacy.html">Privacy policy</a><span id="diagnostic-version"></span><span id="diagnostic-context"></span></footer>
     </main>
