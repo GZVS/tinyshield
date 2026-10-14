@@ -9,7 +9,7 @@
       );
     const active =
       settings?.enabled !== false &&
-      settings?.extensiveEnabled === true &&
+      settings?.extensiveEnabled !== false &&
       settings?.extCosmetic !== false &&
       !allowed;
     document.documentElement?.setAttribute(
@@ -17,11 +17,11 @@
       active ? "on" : "off",
     );
   };
-  apply({ enabled: false });
+  apply({ enabled: true, extensiveEnabled: true, extCosmetic: true });
   chrome.storage.local
     .get(KEY)
-    .then((result) => apply(result[KEY] || {}))
-    .catch(() => apply({ enabled: false }));
+    .then((result) => apply(result[KEY] || { enabled: true, extensiveEnabled: true, extCosmetic: true }))
+    .catch(() => apply({ enabled: true, extensiveEnabled: true, extCosmetic: true }));
   chrome.storage.onChanged.addListener((changes, area) => {
     if (area === "local" && changes[KEY]?.newValue)
       apply(changes[KEY].newValue);

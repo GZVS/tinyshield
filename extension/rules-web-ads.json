@@ -1,32 +1,517 @@
 [
-  {"id":1,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||doubleclick.net^"}},
-  {"id":2,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||googlesyndication.com^"}},
-  {"id":3,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||googleadservices.com^"}},
-  {"id":4,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adservice.google.com^"}},
-  {"id":5,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adnxs.com^"}},
-  {"id":6,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||taboola.com^"}},
-  {"id":7,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||outbrain.com^"}},
-  {"id":8,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||criteo.com^"}},
-  {"id":9,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||amazon-adsystem.com^"}},
-  {"id":10,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||pubmatic.com^"}},
-  {"id":11,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||rubiconproject.com^"}},
-  {"id":12,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||openx.net^"}},
-  {"id":13,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adform.net^"}},
-  {"id":14,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||advertising.com^"}},
-  {"id":15,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||smartadserver.com^"}},
-  {"id":16,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||serving-sys.com^"}},
-  {"id":17,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||sharethrough.com^"}},
-  {"id":18,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||imrworldwide.com^"}},
-  {"id":19,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adservice.google.de^"}},
-  {"id":20,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adtag.s3.amazonaws.com^"}},
-  {"id":21,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||advice-ads.s3.amazonaws.com^"}},
-  {"id":22,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adsdk.microsoft.com^"}},
-  {"id":23,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||ads.microsoft.com^"}},
-  {"id":24,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||msadsscale.microsoft.com^"}},
-  {"id":25,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||adtech.yahoo-inc.com^"}},
-  {"id":26,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"||partnerads.ysm.yahoo.com^"}},
-  {"id":27,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"ads.js","resourceTypes":["script"]}},
-  {"id":28,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"pagead.js","resourceTypes":["script"]}},
-  {"id":29,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"advertisement.js","resourceTypes":["script"]}},
-  {"id":30,"priority":1,"action":{"type":"block"},"condition":{"urlFilter":"pagead2.js","resourceTypes":["script"]}}
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "ads.js",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "advertisement.js",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "pagead.js",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "pagead2.js",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adform.net^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adnxs.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||ads.microsoft.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adsdk.microsoft.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adservice.google.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adservice.google.de^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adtag.s3.amazonaws.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adtech.yahoo-inc.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||advertising.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||advice-ads.s3.amazonaws.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||amazon-adsystem.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||criteo.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||doubleclick.net^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||googleadservices.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||googlesyndication.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||imrworldwide.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||msadsscale.microsoft.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||openx.net^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||outbrain.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||partnerads.ysm.yahoo.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||pubmatic.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||rubiconproject.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||serving-sys.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||sharethrough.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||smartadserver.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||taboola.com^",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "1rx.io",
+        "2mdn.net",
+        "33across.com",
+        "360yield.com",
+        "3lift.com",
+        "a-ads.com",
+        "a.pub.network",
+        "ad.gt",
+        "ad.mail.ru",
+        "adblade.com",
+        "adcolony.com",
+        "adformdsp.net",
+        "adfox.ru",
+        "adfox.yandex.ru",
+        "adfstat.yandex.ru",
+        "adhigh.net",
+        "adition.com",
+        "adkernel.com",
+        "adlightning.com",
+        "admixer.net",
+        "adnxs-simple.com",
+        "adriver.ru",
+        "ads.adthrive.com",
+        "ads.yahoo.com",
+        "adsafeprotected.com",
+        "adservetx.media.net",
+        "adsrvr.org",
+        "adsymptotic.com",
+        "adtago.s3.amazonaws.com",
+        "adtech.yahooinc.com",
+        "adtelligent.com",
+        "advice-ads.s3.amazonaws.com",
+        "adzerk.net",
+        "afs.googlesyndication.com",
+        "an.yandex.ru",
+        "analytics.query.yahoo.com",
+        "analytics.yahoo.com",
+        "analyticsengine.s3.amazonaws.com",
+        "aniview.com",
+        "appmetrica.yandex.ru",
+        "assoc-amazon.com",
+        "bidr.io",
+        "bidswitch.net",
+        "bitmedia.io",
+        "buysellads.com",
+        "carbonads.com",
+        "carbonads.net",
+        "casalemedia.com",
+        "chartboost.com",
+        "coinzilla.com",
+        "confiant-integrations.net",
+        "connatix.com",
+        "contentad.net",
+        "contextweb.com",
+        "cpro.baidu.com",
+        "criteo.net",
+        "districtm.io",
+        "doubleverify.com",
+        "emxdgt.com",
+        "extmaps-api.yandex.net",
+        "gemini.yahoo.com",
+        "geo.yahoo.com",
+        "gumgum.com",
+        "improvedigital.com",
+        "indexww.com",
+        "inmobi.com",
+        "kargo.com",
+        "lijit.com",
+        "lkqd.net",
+        "lockerdome.com",
+        "log.fc.yahoo.com",
+        "mathtag.com",
+        "media.net",
+        "metrika.yandex.ru",
+        "mgid.com",
+        "moatads.com",
+        "ntv.io",
+        "offerwall.yandex.net",
+        "onetag-sys.com",
+        "outbrainimg.com",
+        "partnerads.ysm.yahoo.com",
+        "pos.baidu.com",
+        "primis.tech",
+        "revcontent.com",
+        "rhythmone.com",
+        "richaudience.com",
+        "sascdn.com",
+        "seedtag.com",
+        "smaato.net",
+        "smartclip.net",
+        "sonobi.com",
+        "sovrn.com",
+        "spotx.tv",
+        "spotxchange.com",
+        "springserve.com",
+        "stackadapt.com",
+        "teads.tv",
+        "telaria.com",
+        "tremorhub.com",
+        "triplelift.com",
+        "udc.yahoo.com",
+        "udcm.yahoo.com",
+        "undertone.com",
+        "unityads.unity3d.com",
+        "vidazoo.com",
+        "vungle.com",
+        "yandexadexchange.net",
+        "yieldlab.net",
+        "yieldmo.com",
+        "zemanta.com",
+        "zergnet.com"
+      ],
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  }
 ]

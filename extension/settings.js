@@ -6,11 +6,11 @@ export const DEFAULTS = Object.freeze({
   enabled: true,
   adsEnabled: true,
   trackersEnabled: true,
-  cosmeticEnabled: false,
+  cosmeticEnabled: true,
   youtubeEnabled: false,
   adultEnabled: false,
   gamblingEnabled: false,
-  extensiveEnabled: false,
+  extensiveEnabled: true,
   extAds: true,
   extTrackers: true,
   extThreats: true,
@@ -90,11 +90,11 @@ export function cleanSettings(value = DEFAULTS) {
     enabled: value.enabled !== false,
     adsEnabled: value.adsEnabled !== false,
     trackersEnabled: value.trackersEnabled !== false,
-    cosmeticEnabled: value.cosmeticEnabled === true,
+    cosmeticEnabled: value.cosmeticEnabled !== false,
     youtubeEnabled: value.youtubeEnabled === true,
     adultEnabled: value.adultEnabled === true,
     gamblingEnabled: value.gamblingEnabled === true,
-    extensiveEnabled: value.extensiveEnabled === true,
+    extensiveEnabled: value.extensiveEnabled !== false,
     extAds: value.extAds !== false,
     extTrackers: value.extTrackers !== false,
     extThreats: value.extThreats !== false,
@@ -107,19 +107,19 @@ export function cleanSettings(value = DEFAULTS) {
   };
 }
 
-export function enabledRulesets(settings, hasAccess) {
+export function enabledRulesets(settings) {
   if (!settings.enabled) return [];
   const rulesets = [
     ...(settings.adsEnabled ? ["web_ads"] : []),
     ...(settings.trackersEnabled ? ["trackers"] : []),
     ...(settings.youtubeEnabled ? ["youtube_ads"] : []),
-    ...(settings.adultEnabled && hasAccess ? ["adult_sites"] : []),
-    ...(settings.gamblingEnabled && hasAccess ? ["gambling_sites"] : []),
+    ...(settings.adultEnabled ? ["adult_sites"] : []),
+    ...(settings.gamblingEnabled ? ["gambling_sites"] : []),
   ];
   if (settings.extensiveEnabled) {
     if (settings.extAds !== false) rulesets.push("ext_ads");
     if (settings.extTrackers !== false) rulesets.push("ext_trackers");
-    if (settings.extThreats !== false && hasAccess) rulesets.push("ext_threats");
+    if (settings.extThreats !== false) rulesets.push("ext_threats");
     if (settings.extAnnoyances !== false) rulesets.push("ext_annoyances");
     if (settings.extUrlCleaning !== false) rulesets.push("ext_privacy");
     if (settings.extSurrogates !== false) rulesets.push("ext_surrogates");

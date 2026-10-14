@@ -9,18 +9,18 @@
       );
     const active =
       settings?.enabled !== false &&
-      settings?.cosmeticEnabled === true &&
+      settings?.cosmeticEnabled !== false &&
       !allowed;
     document.documentElement?.setAttribute(
       "data-tinyshield-cleanup",
       active ? "on" : "off",
     );
   };
-  apply({ enabled: false });
+  apply({ enabled: true, cosmeticEnabled: true });
   chrome.storage.local
     .get(KEY)
-    .then((result) => apply(result[KEY] || {}))
-    .catch(() => apply({ enabled: false }));
+    .then((result) => apply(result[KEY] || { enabled: true, cosmeticEnabled: true }))
+    .catch(() => apply({ enabled: true, cosmeticEnabled: true }));
   chrome.storage.onChanged.addListener((changes, area) => {
     if (area === "local" && changes[KEY]?.newValue)
       apply(changes[KEY].newValue);

@@ -62,13 +62,7 @@ async function syncContentScripts(settings, hasAccess) {
 }
 
 async function applySettings(settings) {
-  const hasAccess = await chrome.permissions.contains({ origins: WEBSITE_ORIGINS });
-  const needsAccess = settings.adultEnabled || settings.gamblingEnabled || settings.cosmeticEnabled ||
-    (settings.extensiveEnabled && (settings.extThreats !== false || settings.extCosmetic !== false || settings.extYouTube === true));
-  if (!hasAccess && needsAccess) {
-    throw new Error("Website access is needed for site blocking, security protection and page cleanup. Enable the feature again to grant access.");
-  }
-  const expected = enabledRulesets(settings, hasAccess);
+  const expected = enabledRulesets(settings);
   const rules = await chrome.declarativeNetRequest.getDynamicRules();
   const desired = buildAllowRules(settings.allowedSites);
   if (JSON.stringify(rules) !== JSON.stringify(desired)) {
@@ -85,6 +79,7 @@ async function applySettings(settings) {
   if (!sameRulesets(actual, expected)) {
     throw new Error("The browser did not activate the requested filters. Open Test blocking and click Repair filters.");
   }
+  const hasAccess = await chrome.permissions.contains({ origins: WEBSITE_ORIGINS });
   await syncContentScripts(settings, hasAccess);
   return actual;
 }
@@ -97,17 +92,6 @@ async function recordError(error) {
 async function initialize() {
   const saved = await chrome.storage.local.get(SETTINGS_KEY);
   const settings = cleanSettings(saved[SETTINGS_KEY] || DEFAULTS);
-  const hasAccess = await chrome.permissions.contains({ origins: WEBSITE_ORIGINS });
-  if (!hasAccess) {
-    settings.adultEnabled = false;
-    settings.gamblingEnabled = false;
-    settings.cosmeticEnabled = false;
-    if (settings.extensiveEnabled) {
-      settings.extThreats = false;
-      settings.extCosmetic = false;
-      settings.extYouTube = false;
-    }
-  }
   const rulesets = await applySettings(settings);
   await chrome.storage.local.set({ [SETTINGS_KEY]: settings, [STATUS_KEY]: { ok: true, rulesets } });
   // Sidebar support is optional and must never stop network protection.

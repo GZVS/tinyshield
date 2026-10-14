@@ -12,9 +12,26 @@
     "sidePanel",
     "scripting"
   ],
-  "optional_host_permissions": [
+  "host_permissions": [
     "http://*/*",
     "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": [
+        "cosmetic.css",
+        "ext-cosmetic.css"
+      ],
+      "js": [
+        "cosmetic.js",
+        "ext-cosmetic.js"
+      ],
+      "run_at": "document_start"
+    }
   ],
   "background": {
     "service_worker": "background.js",
@@ -61,12 +78,12 @@
       },
       {
         "id": "ext_ads",
-        "enabled": false,
+        "enabled": true,
         "path": "rules-ext-ads.json"
       },
       {
         "id": "ext_trackers",
-        "enabled": false,
+        "enabled": true,
         "path": "rules-ext-trackers.json"
       },
       {
@@ -76,17 +93,17 @@
       },
       {
         "id": "ext_annoyances",
-        "enabled": false,
+        "enabled": true,
         "path": "rules-ext-annoyances.json"
       },
       {
         "id": "ext_privacy",
-        "enabled": false,
+        "enabled": true,
         "path": "rules-ext-privacy.json"
       },
       {
         "id": "ext_surrogates",
-        "enabled": false,
+        "enabled": true,
         "path": "rules-ext-surrogates.json"
       }
     ]

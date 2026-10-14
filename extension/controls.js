@@ -113,33 +113,6 @@ document.querySelectorAll("input[data-setting]").forEach((input) => {
   input.addEventListener("change", async () => {
     const key = input.dataset.setting;
     const checked = input.checked;
-    if (
-      checked &&
-      ["adultEnabled", "gamblingEnabled", "cosmeticEnabled", "extensiveEnabled"].includes(key)
-    ) {
-      // Request inside the user gesture; deferring this loses Chrome's permission gesture.
-      busy = true;
-      render();
-      try {
-        const granted = await chrome.permissions.request({
-          origins: WEBSITE_ORIGINS,
-        });
-        if (!granted) {
-          feedback(
-            "Website access was not granted. This feature remains off.",
-            true,
-          );
-          busy = false;
-          render();
-          return;
-        }
-      } catch (error) {
-        feedback(error.message, true);
-        busy = false;
-        render();
-        return;
-      }
-    }
     await save(
       { [key]: checked },
       checked ? "Filter enabled." : "Filter turned off.",
