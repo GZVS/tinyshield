@@ -1,1 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="27" fill="#0969e8"/><path d="M64 22 99 36v23c0 23-16 39-35 49-19-10-35-26-35-49V36Z" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round"/><path d="m47 62 12 12 24-28" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="appBg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#080D1A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="appShieldBg" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="45%" stop-color="#1E40AF"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="appBorder" x1="32" y1="16" x2="96" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="appGold" x1="64" y1="36" x2="64" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- App Rounded Squircle Container -->
+  <rect width="128" height="128" rx="28" fill="url(#appBg)"/>
+  <rect x="1" y="1" width="126" height="126" rx="27" stroke="#38BDF8" stroke-opacity="0.2" stroke-width="2"/>
+
+  <!-- Zenith Shield Body -->
+  <path d="M64 16 L104 30.5 V65 C104 89 86 106.5 64 116.5 C42 106.5 24 89 24 65 V30.5 Z" 
+        fill="url(#appShieldBg)" 
+        stroke="url(#appBorder)" 
+        stroke-width="5" 
+        stroke-linejoin="round"/>
+
+  <!-- Inner Right Shading Facet -->
+  <path d="M64 21 L98 33.5 V65 C98 84 83 99.5 64 108.5 V21 Z" 
+        fill="#FFFFFF" 
+        fill-opacity="0.08"/>
+
+  <!-- Zenith Peak Apex Symbol (Gold) -->
+  <path d="M64 38 L82 66 L64 60 L46 66 Z" fill="url(#appGold)"/>
+  <path d="M64 64 L77 86 L64 81 L51 86 Z" fill="url(#appGold)" fill-opacity="0.9"/>
+</svg>

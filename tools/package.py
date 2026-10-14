@@ -16,7 +16,7 @@ def package(target, output):
     version = manifest['version']
     manifest['version_name'] = f"{version} ({'Microsoft Edge' if target == 'edge' else 'Chrome'})"
     output.mkdir(parents=True, exist_ok=True)
-    archive = output / f'tinyshield-v{version}-{target}.zip'
+    archive = output / f'zenith-guard-v{version}-{target}.zip'
     with tempfile.NamedTemporaryFile(dir=output, suffix='.zip', delete=False) as temp:
         temporary = Path(temp.name)
     try:

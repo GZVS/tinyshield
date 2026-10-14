@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "TinyShield \u2014 Ads & Website Blocker",
-  "short_name": "TinyShield",
+  "name": "Zenith Guard — Ad & Privacy Blocker",
+  "short_name": "Zenith Guard",
   "version": "3.2.0",
   "incognito": "split",
   "minimum_chrome_version": "120",
-  "description": "Block common ads and trackers, plus adult and gambling sites. Local filtering, simple controls, and optional page cleanup.",
+  "description": "Next-gen ad, tracker & threat blocker. Instant video ad skipping, threat protection, and cosmetic cleanup with zero network overhead.",
   "permissions": [
     "declarativeNetRequest",
     "storage",
@@ -57,7 +57,7 @@
     "type": "module"
   },
   "action": {
-    "default_title": "Open TinyShield",
+    "default_title": "Open Zenith Guard",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png",
