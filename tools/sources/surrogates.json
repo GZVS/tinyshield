@@ -1,0 +1,11 @@
+[
+  {"urlFilter": "||google-analytics.com/analytics.js", "resource": "surrogates/google-analytics.js"},
+  {"urlFilter": "||google-analytics.com/ga.js", "resource": "surrogates/google-analytics.js"},
+  {"urlFilter": "||googletagmanager.com/gtag/js", "resource": "surrogates/googletagmanager.js"},
+  {"urlFilter": "||googletagmanager.com/gtm.js", "resource": "surrogates/googletagmanager.js"},
+  {"urlFilter": "||googletagservices.com/tag/js/gpt.js", "resource": "surrogates/gpt.js"},
+  {"urlFilter": "||securepubads.g.doubleclick.net/tag/js/gpt.js", "resource": "surrogates/gpt.js"},
+  {"urlFilter": "||pagead2.googlesyndication.com/tag/js/gpt.js", "resource": "surrogates/gpt.js"},
+  {"urlFilter": "||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", "resource": "surrogates/adsbygoogle.js"},
+  {"urlFilter": "||c.amazon-adsystem.com/aax2/apstag.js", "resource": "surrogates/apstag.js"}
+]

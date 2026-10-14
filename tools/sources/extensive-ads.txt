@@ -1,0 +1,104 @@
+# TinyShield curated extended ad networks (MIT, part of TinyShield).
+# One domain per line blocks that domain and its subdomains for sub-resources
+# (scripts, frames, images, XHR...). Top-level page visits are never blocked here.
+# Lines containing "/", "^" or "*" are DNR urlFilter patterns.
+# Curated entries bypass the infrastructure protection used for upstream lists.
+
+# Exchanges, SSPs and DSPs
+adsrvr.org
+casalemedia.com
+indexww.com
+3lift.com
+triplelift.com
+lijit.com
+sovrn.com
+gumgum.com
+teads.tv
+yieldmo.com
+media.net
+contextweb.com
+bidswitch.net
+smaato.net
+sonobi.com
+improvedigital.com
+360yield.com
+onetag-sys.com
+richaudience.com
+adition.com
+yieldlab.net
+smartclip.net
+spotxchange.com
+spotx.tv
+springserve.com
+connatix.com
+primis.tech
+seedtag.com
+mathtag.com
+bidr.io
+admixer.net
+adriver.ru
+an.yandex.ru
+adfox.ru
+yandexadexchange.net
+ad.mail.ru
+pos.baidu.com
+cpro.baidu.com
+33across.com
+districtm.io
+emxdgt.com
+kargo.com
+undertone.com
+adkernel.com
+adtelligent.com
+aniview.com
+vidazoo.com
+lkqd.net
+tremorhub.com
+telaria.com
+rhythmone.com
+1rx.io
+adformdsp.net
+sascdn.com
+criteo.net
+adnxs-simple.com
+adsymptotic.com
+adhigh.net
+2mdn.net
+ad.gt
+a.pub.network
+ads.adthrive.com
+assoc-amazon.com
+ads.yahoo.com
+
+# Native and content-recommendation widgets
+mgid.com
+revcontent.com
+zergnet.com
+ntv.io
+stackadapt.com
+outbrainimg.com
+zemanta.com
+contentad.net
+lockerdome.com
+adblade.com
+adzerk.net
+buysellads.com
+carbonads.com
+carbonads.net
+a-ads.com
+coinzilla.com
+bitmedia.io
+
+# In-app and video ad SDKs that also serve web inventory
+inmobi.com
+adcolony.com
+unityads.unity3d.com
+vungle.com
+chartboost.com
+
+# Ad verification and fraud-measurement beacons
+moatads.com
+adsafeprotected.com
+doubleverify.com
+adlightning.com
+confiant-integrations.net

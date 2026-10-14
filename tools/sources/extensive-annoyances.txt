@@ -1,0 +1,44 @@
+# TinyShield curated annoyance networks (MIT, part of TinyShield).
+# Pop-under, redirect and push-notification networks. These domains are blocked
+# for every request type, including pop-under tabs (top-level visits).
+
+# Pop-under and redirect ad networks
+propellerads.com
+propellerclick.com
+propellerpops.com
+popads.net
+popcash.net
+popunder.net
+popmyads.com
+adsterra.com
+exoclick.com
+exosrv.com
+exdynsrv.com
+realsrv.com
+juicyads.com
+trafficjunky.com
+trafficjunky.net
+hilltopads.com
+hilltopads.net
+clickadu.com
+adcash.com
+galaksion.com
+onclickads.net
+onclkds.com
+admaven.com
+ad-maven.com
+monetag.com
+evadav.com
+
+# Push-notification prompt networks
+richpush.co
+pushground.com
+pushnami.com
+pushcrew.com
+pushengage.com
+izooto.com
+subscribers.com
+webpushr.com
+aimtell.com
+truepush.com
+cdn.onesignal.com

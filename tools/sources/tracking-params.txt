@@ -1,0 +1,60 @@
+# TinyShield tracking-parameter removal list (MIT, part of TinyShield).
+# Each line is an exact query-parameter name removed from page and frame URLs.
+# Parameters used for real site functionality (ref, si, id, page...) are never listed.
+
+# Google Analytics / campaign tagging
+utm_source
+utm_medium
+utm_campaign
+utm_term
+utm_content
+utm_id
+utm_name
+utm_cid
+utm_reader
+utm_referrer
+utm_social
+utm_social-type
+utm_brand
+utm_place
+utm_pubreferrer
+utm_swu
+utm_viz_id
+_gl
+
+# Ad click identifiers
+gclid
+gclsrc
+dclid
+gbraid
+wbraid
+msclkid
+fbclid
+twclid
+ttclid
+li_fat_id
+yclid
+ysclid
+igshid
+igsh
+epik
+srsltid
+_openstat
+
+# Email and marketing automation
+mc_cid
+mc_eid
+_hsenc
+_hsmi
+__hssc
+__hstc
+__hsfp
+hsCtaTracking
+mkt_tok
+oly_anon_id
+oly_enc_id
+vero_id
+vero_conv
+wickedid
+rb_clickid
+s_cid
