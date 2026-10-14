@@ -10,7 +10,10 @@ html[data-tinyshield-cleanup="on"] .ad-unit,
 html[data-tinyshield-cleanup="on"] .advertisement,
 html[data-tinyshield-cleanup="on"] .advertising-banner,
 html[data-tinyshield-cleanup="on"] [data-ad],
-html[data-tinyshield-cleanup="on"] [data-ad-slot] {
+html[data-tinyshield-cleanup="on"] [data-ad-slot],
+html[data-tinyshield-cleanup="on"] .textads,
+html[data-tinyshield-cleanup="on"] [class*="textads"],
+html[data-tinyshield-cleanup="on"] [class*="text-ad"] {
   display: none !important;
   visibility: hidden !important;
 }
