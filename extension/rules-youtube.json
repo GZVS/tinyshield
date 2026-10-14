@@ -6,5 +6,10 @@
   {"id":1005,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||googleads.g.doubleclick.net/pagead/"}},
   {"id":1006,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/ad_data"}},
   {"id":1007,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/youtubei/v1/player/ad_break"}},
-  {"id":1008,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/ptracking"}}
+  {"id":1008,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/ptracking"}},
+  {"id":1009,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||static.doubleclick.net/instream/ad_status.js"}},
+  {"id":1010,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/api/stats/qoe*adformat="}},
+  {"id":1011,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/api/stats/playback*adformat="}},
+  {"id":1012,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/api/stats/watchtime*adformat="}},
+  {"id":1013,"priority":2,"action":{"type":"block"},"condition":{"urlFilter":"||youtube.com/api/stats/atr*"}}
 ]

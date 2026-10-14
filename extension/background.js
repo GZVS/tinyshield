@@ -12,53 +12,14 @@ const TEST_STATE_KEY = testStateKey(PRIVATE_WINDOW);
 let queue = Promise.resolve();
 
 async function syncContentScripts(settings, hasAccess) {
-  const registered = await chrome.scripting.getRegisteredContentScripts();
-  const existingIds = new Set(registered.map((s) => s.id));
-  const toRegister = [];
-  const toUnregister = [];
-
-  // 1. Standard cosmetic cleanup
-  const shouldRunCosmetic = settings.enabled && settings.cosmeticEnabled && hasAccess;
-  if (shouldRunCosmetic && !existingIds.has(COSMETIC_SCRIPT_ID)) {
-    toRegister.push({
-      id: COSMETIC_SCRIPT_ID, matches: WEBSITE_ORIGINS,
-      css: ["cosmetic.css"], js: ["cosmetic.js"],
-      runAt: "document_start", persistAcrossSessions: true,
-    });
-  } else if (!shouldRunCosmetic && existingIds.has(COSMETIC_SCRIPT_ID)) {
-    toUnregister.push(COSMETIC_SCRIPT_ID);
-  }
-
-  // 2. Extended cosmetic cleanup
-  const shouldRunExtCosmetic = settings.enabled && settings.extensiveEnabled && settings.extCosmetic !== false && hasAccess;
-  if (shouldRunExtCosmetic && !existingIds.has(EXT_COSMETIC_SCRIPT_ID)) {
-    toRegister.push({
-      id: EXT_COSMETIC_SCRIPT_ID, matches: WEBSITE_ORIGINS,
-      css: ["ext-cosmetic.css"], js: ["ext-cosmetic.js"],
-      runAt: "document_start", persistAcrossSessions: true,
-    });
-  } else if (!shouldRunExtCosmetic && existingIds.has(EXT_COSMETIC_SCRIPT_ID)) {
-    toUnregister.push(EXT_COSMETIC_SCRIPT_ID);
-  }
-
-  // 3. Extended YouTube helper (experimental)
-  const shouldRunExtYouTube = settings.enabled && settings.extensiveEnabled && settings.extYouTube === true && hasAccess;
-  if (shouldRunExtYouTube && !existingIds.has(EXT_YOUTUBE_SCRIPT_ID)) {
-    toRegister.push({
-      id: EXT_YOUTUBE_SCRIPT_ID, matches: ["*://*.youtube.com/*"],
-      js: ["ext-youtube.js"],
-      runAt: "document_start", persistAcrossSessions: true,
-    });
-  } else if (!shouldRunExtYouTube && existingIds.has(EXT_YOUTUBE_SCRIPT_ID)) {
-    toUnregister.push(EXT_YOUTUBE_SCRIPT_ID);
-  }
-
-  if (toUnregister.length > 0) {
-    await chrome.scripting.unregisterContentScripts({ ids: toUnregister });
-  }
-  if (toRegister.length > 0) {
-    await chrome.scripting.registerContentScripts(toRegister);
-  }
+  // Static content scripts are declared in manifest.json.
+  // Clean up any dynamically registered content scripts to prevent duplication.
+  try {
+    const registered = await chrome.scripting.getRegisteredContentScripts();
+    if (registered.length > 0) {
+      await chrome.scripting.unregisterContentScripts({ ids: registered.map((s) => s.id) });
+    }
+  } catch (e) {}
 }
 
 async function applySettings(settings) {

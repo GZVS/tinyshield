@@ -31,6 +31,25 @@
         "ext-cosmetic.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "yt-main-world.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "ext-youtube.js"
+      ],
+      "run_at": "document_start"
     }
   ],
   "background": {
@@ -63,7 +82,7 @@
       },
       {
         "id": "youtube_ads",
-        "enabled": false,
+        "enabled": true,
         "path": "rules-youtube.json"
       },
       {

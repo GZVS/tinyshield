@@ -7,7 +7,7 @@ export const DEFAULTS = Object.freeze({
   adsEnabled: true,
   trackersEnabled: true,
   cosmeticEnabled: true,
-  youtubeEnabled: false,
+  youtubeEnabled: true,
   adultEnabled: false,
   gamblingEnabled: false,
   extensiveEnabled: true,
@@ -18,7 +18,7 @@ export const DEFAULTS = Object.freeze({
   extUrlCleaning: true,
   extSurrogates: true,
   extCosmetic: true,
-  extYouTube: false,
+  extYouTube: true,
   allowedSites: [],
 });
 export const RULESET_IDS = [
@@ -91,7 +91,7 @@ export function cleanSettings(value = DEFAULTS) {
     adsEnabled: value.adsEnabled !== false,
     trackersEnabled: value.trackersEnabled !== false,
     cosmeticEnabled: value.cosmeticEnabled !== false,
-    youtubeEnabled: value.youtubeEnabled === true,
+    youtubeEnabled: value.youtubeEnabled !== false,
     adultEnabled: value.adultEnabled === true,
     gamblingEnabled: value.gamblingEnabled === true,
     extensiveEnabled: value.extensiveEnabled !== false,
@@ -102,7 +102,7 @@ export function cleanSettings(value = DEFAULTS) {
     extUrlCleaning: value.extUrlCleaning !== false,
     extSurrogates: value.extSurrogates !== false,
     extCosmetic: value.extCosmetic !== false,
-    extYouTube: value.extYouTube === true,
+    extYouTube: value.extYouTube !== false,
     allowedSites: sites,
   };
 }
