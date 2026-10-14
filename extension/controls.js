@@ -42,8 +42,8 @@ function render() {
     $("protection").setAttribute(
       "aria-label",
       settings.enabled
-        ? "Pause all TinyShield protection"
-        : "Resume TinyShield protection",
+        ? "Pause all Zenith Guard protection"
+        : "Resume Zenith Guard protection",
     );
     $("protection").disabled = busy;
     $("protection-label").textContent = !loaded
@@ -146,7 +146,7 @@ $("allow-form")?.addEventListener("submit", async (event) => {
       throw new Error("Remove an allowed website before adding another.");
     await save(
       { allowedSites: [...settings.allowedSites, domain] },
-      `${domain} and its subdomains are allowed through all TinyShield filters.`,
+      `${domain} and its subdomains are allowed through all Zenith Guard filters.`,
     );
     if (settings.allowedSites.includes(domain)) $("domain-input").value = "";
   } catch (error) {

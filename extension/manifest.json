@@ -5,7 +5,7 @@
   "version": "3.2.0",
   "incognito": "split",
   "minimum_chrome_version": "120",
-  "description": "Next-gen ad, tracker & threat blocker. Instant video ad skipping, threat protection, and cosmetic cleanup with zero network overhead.",
+  "description": "Next-gen ad, tracker & threat blocker. Instant video ad skipping, threat defense, and cosmetic cleanup with zero network overhead.",
   "permissions": [
     "declarativeNetRequest",
     "storage",

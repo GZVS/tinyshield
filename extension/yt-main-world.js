@@ -1,5 +1,5 @@
 (() => {
-  // TinyShield YouTube Core Interceptor (runs in page's MAIN world context)
+  // Zenith Guard YouTube Core Interceptor (runs in page's MAIN world context)
   const cleanData = (obj) => {
     if (!obj || typeof obj !== "object") return obj;
     delete obj.adPlacements;

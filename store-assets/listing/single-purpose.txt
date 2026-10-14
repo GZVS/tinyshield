@@ -1,1 +1,1 @@
-TinyShield helps users filter unwanted browser requests and optionally prevent top-level navigation to adult and gambling domains, using local packaged rules and user-controlled exceptions.
+Zenith Guard blocks intrusive ads, trackers, and malicious threats locally using Declarative Net Request rules, high-speed video ad skipping, and user-controlled content filtering.

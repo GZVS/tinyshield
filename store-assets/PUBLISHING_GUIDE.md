@@ -1,23 +1,23 @@
-# Chrome Web Store publishing guide — TinyShield 3.1.1
+# Chrome Web Store publishing guide — Zenith Guard 3.2.0
 
 ## 1. Finish local browser checks
 
-Run the source tests and follow `docs/RELEASE_CHECKS.md`. This candidate has passed source checks but live Chrome runtime verification was blocked in the authoring environment. In particular, verify that the full category rules index and enable successfully. The exact screenshots in `ui-previews/` are implementation-derived previews; they are not evidence of an installed Chrome extension. Use the local browser QA script to generate actual PNGs before submitting.
+Run the source tests and follow `docs/RELEASE_CHECKS.md`. Verify that `python tools/validate.py` passes and that the full category rules index and enable successfully.
 
-## 2. Create the public source repository
+## 2. Create or update the public source repository
 
-Suggested name: **TinyShield**  
-Suggested description: **Local ad, tracker, adult-site and gambling-site filtering for Chrome and Microsoft Edge, with a simple UI and optional donations.**
+Suggested name: **Zenith Guard**  
+Suggested description: **High-performance ad, tracker, and security blocker for Chrome and Microsoft Edge with next-gen video ad skipping, extensive filtering, and ambient dark UI.**
 
-Upload the source-folder contents, including the MIT license and third-party notices. Do not upload browser profiles, npm dependencies or cache files. The README explains the extension folder and tests.
+Upload the source-folder contents, including the license and third-party notices. Do not upload browser profiles, npm dependencies or cache files. The README explains the extension folder and tests.
 
 ## 3. Host the privacy policy
 
-Copy the supplied `privacy.md` to your privacy-policy repository at `extensions/tinyshield/privacy.md`. Open that file's public GitHub page while signed out, then copy its exact URL. The policy uses the support email already present in TinyShield 2.0.0: zsgeorgios@icloud.com. Review it if your support contact has changed.
+Copy the supplied `privacy.md` to your privacy-policy repository (e.g. `extensions/zenith-guard/privacy.md` or GitHub Pages). Open that file's public URL while signed out, then copy its exact URL. The policy uses the support email: zsgeorgios@icloud.com.
 
 ## 4. Upload the extension ZIP
 
-In your Chrome Web Store Developer Dashboard, open the existing TinyShield item and upload **tinyshield-v3.1.1-chrome.zip** as an update. The ZIP has `manifest.json` at its root and contains runtime files only. Do not upload the source ZIP or publishing-assets ZIP as the extension.
+In your Chrome Web Store Developer Dashboard, create a new item or open your existing item and upload **dist/zenith-guard-v3.2.0-chrome.zip**. The ZIP has `manifest.json` at its root and contains runtime files only.
 
 Review the item identity/signing behavior when updating an existing extension; migration applies to the same installed extension ID. No `.pem` private key is supplied or needed for a store dashboard upload.
 
@@ -62,4 +62,4 @@ Documentation checked on 10 October 2026. The source includes references so you 
 
 ## Microsoft Edge package
 
-Use `tinyshield-v3.1.1-edge.zip` in Microsoft Partner Center after actual Edge checks pass. The separate Edge preparation guide and 300×300 store logo are in `edge/`. The shared listing copy explains the same features and privacy behavior in both browsers. Do not upload the source or publishing-kit archive as a runtime package.
+Use `zenith-guard-v3.2.0-edge.zip` in Microsoft Partner Center after actual Edge checks pass. The separate Edge preparation guide and 300×300 store logo are in `edge/`. The shared listing copy explains the same features and privacy behavior in both browsers. Do not upload the source or publishing-kit archive as a runtime package.
