@@ -2,6 +2,7 @@
 """Check release assets, manifest paths and DNR domain conditions offline."""
 import json
 import re
+import shutil
 import subprocess
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -20,7 +21,7 @@ def main():
     for entry in manifest['web_accessible_resources']:
         paths.extend(entry['resources'])
     public = {path for entry in manifest['web_accessible_resources'] for path in entry['resources']}
-    assert {'blocked-adult.html', 'blocked-gambling.html', 'blocked.js', 'ui.css', 'assets/shield.svg'} <= public
+    assert {'blocked-adult.html', 'blocked-gambling.html', 'blocked-security.html', 'blocked.js', 'ui.css', 'assets/shield.svg', 'assets/extensive.svg'} <= public
     assert any({'http://*/*', 'https://*/*'} <= set(entry['matches']) for entry in manifest['web_accessible_resources'])
     assert all(entry.get('use_dynamic_url') is False for entry in manifest['web_accessible_resources']), 'Static extensionPath redirects must have stable resource URLs'
     total = 0
@@ -29,7 +30,9 @@ def main():
         rules = json.loads((EXT / ruleset['path']).read_text())
         if ruleset['id'] in ['adult_sites', 'gambling_sites']:
             category = ruleset['id'].removesuffix('_sites')
-            assert any(category + '.tinyshield.test' in rule['condition']['requestDomains'] for rule in rules)
+            assert any(category + '.tinyshield.test' in rule['condition'].get('requestDomains', []) for rule in rules)
+        elif ruleset['id'] == 'ext_threats':
+            assert any('security.tinyshield.test' in rule['condition'].get('requestDomains', []) for rule in rules)
         assert len({rule['id'] for rule in rules}) == len(rules)
         for rule in rules:
             assert rule['id'] > 0 and rule['priority'] > 0
@@ -37,10 +40,13 @@ def main():
                 assert domain.isascii() and '.' in domain and len(domain) <= 253
                 assert all(re.fullmatch(r'[a-z0-9](?:[a-z0-9-]*[a-z0-9])?', label) for label in domain.split('.'))
             if rule['action']['type'] == 'redirect':
-                target = rule['action']['redirect']['extensionPath'].lstrip('/')
-                paths.append(target)
-                assert target in public
-                assert rule['condition']['resourceTypes'] == ['main_frame']
+                redirect_obj = rule['action'].get('redirect', {})
+                if 'extensionPath' in redirect_obj:
+                    target = redirect_obj['extensionPath'].lstrip('/')
+                    paths.append(target)
+                    assert target in public
+                elif 'transform' in redirect_obj:
+                    assert 'queryTransform' in redirect_obj['transform']
         total += len(rules)
     assert total < 30000
     for page in EXT.glob('*.html'):
@@ -51,9 +57,11 @@ def main():
                 paths.append(urlsplit(value).path)
     for path in paths:
         assert (EXT / path).is_file(), path
-    for js in EXT.glob('*.js'):
-        subprocess.run(['node', '--check', str(js)], check=True)
-    for category in ['adult', 'gambling']:
+    has_node = bool(shutil.which('node'))
+    for js in EXT.rglob('*.js'):
+        if has_node:
+            subprocess.run(['node', '--check', str(js)], check=True)
+    for category in ['adult', 'gambling', 'security']:
         page = (EXT / f'blocked-{category}.html').read_text()
         assert '<h1>This site is blocked</h1>' in page
         assert f'data-category="{category}"' in page

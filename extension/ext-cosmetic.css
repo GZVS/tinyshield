@@ -1,0 +1,30 @@
+/* Extended cosmetic filtering stylesheet */
+html[data-tinyshield-ext="on"] ins.adsbygoogle,
+html[data-tinyshield-ext="on"] iframe[id^="google_ads_iframe"],
+html[data-tinyshield-ext="on"] [data-google-query-id],
+html[data-tinyshield-ext="on"] amp-ad,
+html[data-tinyshield-ext="on"] amp-embed[type="taboola"],
+html[data-tinyshield-ext="on"] .trc_rbox_container,
+html[data-tinyshield-ext="on"] #taboola-below-article,
+html[data-tinyshield-ext="on"] .OUTBRAIN,
+html[data-tinyshield-ext="on"] [id^="rc-widget-"],
+html[data-tinyshield-ext="on"] .mgid-container,
+html[data-tinyshield-ext="on"] .dfp-ad,
+html[data-tinyshield-ext="on"] .sponsored-content,
+html[data-tinyshield-ext="on"] #tads,
+html[data-tinyshield-ext="on"] #bottomads,
+html[data-tinyshield-ext="on"] [data-text-ad],
+html[data-tinyshield-ext="on"] .b_ad,
+html[data-tinyshield-ext="on"] [data-testid="ad"],
+html[data-tinyshield-ext="on"] shreddit-ad-post,
+html[data-tinyshield-ext="on"] .promotedlink,
+html[data-tinyshield-ext="on"] [data-testid="placementTracking"],
+html[data-tinyshield-ext="on"] [data-component-type="sp-sponsored-result"],
+html[data-tinyshield-ext="on"] ytd-ad-slot-renderer,
+html[data-tinyshield-ext="on"] ytd-in-feed-ad-layout-renderer,
+html[data-tinyshield-ext="on"] #masthead-ad,
+html[data-tinyshield-ext="on"] ytd-promoted-sparkles-web-renderer,
+html[data-tinyshield-ext="on"] #player-ads {
+  display: none !important;
+  visibility: hidden !important;
+}

@@ -4,6 +4,7 @@ export const TEST_STATE_KEY = "tinyShieldBlockingTests";
 export const TESTS = Object.freeze({
   adult: { domain: "adult.tinyshield.test", setting: "adultEnabled", ruleset: "adult_sites", page: "blocked-adult.html", reason: "Adult content" },
   gambling: { domain: "gambling.tinyshield.test", setting: "gamblingEnabled", ruleset: "gambling_sites", page: "blocked-gambling.html", reason: "Gambling" },
+  security: { domain: "security.tinyshield.test", setting: "extThreats", ruleset: "ext_threats", page: "blocked-security.html", reason: "Dangerous site" },
 });
 
 export function testStateKey(privateWindow = false) {
@@ -30,12 +31,15 @@ export function blockingChecks(settings, hasAccess, actual, status, tests = {}, 
   const pageChecks = {};
   for (const [category, spec] of Object.entries(TESTS)) {
     const excepted = settings.allowedSites.some((domain) => spec.domain === domain || spec.domain.endsWith(`.${domain}`));
-    const ready = settings.enabled && hasAccess && settings[spec.setting] && actual.includes(spec.ruleset) && sameRulesets(actual, expected) && !excepted && status?.ok !== false;
+    const settingEnabled = spec.setting === "extThreats"
+      ? (settings.extensiveEnabled && settings.extThreats !== false)
+      : Boolean(settings[spec.setting]);
+    const ready = settings.enabled && hasAccess && settingEnabled && actual.includes(spec.ruleset) && sameRulesets(actual, expected) && !excepted && status?.ok !== false;
     const last = tests[category];
     const result = testResult(last, now);
     categories[category] = {
       ready,
-      detail: excepted ? "Remove the test domain from Allowed websites first." : !settings[spec.setting] ? "Enable this category first." : !ready ? "Resolve the failed checks above first." : "Ready to test the packaged redirect",
+      detail: excepted ? "Remove the test domain from Allowed websites first." : !settingEnabled ? "Enable this category first." : !ready ? "Resolve the failed checks above first." : "Ready to test the packaged redirect",
       result,
       message: result === "passed" ? "The redirected page confirmed its heading, category, GitHub link and shield image." : result === "running" ? "Waiting for the blocked page to render…" : result === "unconfirmed" ? "No blocked-page confirmation arrived. Inspect the test tab and export these diagnostics." : "No navigation test has run in this browser session.",
     };

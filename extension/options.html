@@ -113,10 +113,100 @@
         ></label>
       </section>
       <section class="settings-section">
+        <h2>Extensive Blocking</h2>
+        <p class="section-intro">
+          Deeper network coverage, dangerous site protection, annoyance blocking, and tracking-parameter cleaning. Needs website access.
+        </p>
+        <label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Extensive protection</strong>
+            <p>Enable deeper filtering across extended ad networks, security threats and trackers.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extensiveEnabled"
+              aria-label="Extensive protection" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Extended ad networks</strong>
+            <p>Blocks additional ad exchanges, video ad SDKs, and native widget providers.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extAds"
+              aria-label="Extended ad networks" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Extended trackers &amp; CNAME cloaking</strong>
+            <p>Blocks session recorders, data brokers, social tracking pixels, and disguised trackers.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extTrackers"
+              aria-label="Extended trackers" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Block dangerous sites</strong>
+            <p>Redirects known phishing, malware, scam, fraud, and cryptojacking websites.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extThreats"
+              aria-label="Block dangerous sites" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Block annoyances</strong>
+            <p>Blocks popunder ad networks, push notification prompt networks, and third-party ping beacons.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extAnnoyances"
+              aria-label="Block annoyances" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Strip tracking parameters</strong>
+            <p>Removes tracking tags like utm_*, fbclid, and gclid from web links.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extUrlCleaning"
+              aria-label="Strip tracking parameters" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Script surrogates</strong>
+            <p>Injects lightweight stubs for blocked analytics and ads to prevent websites from hanging.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extSurrogates"
+              aria-label="Script surrogates" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong>Extended page cleanup</strong>
+            <p>Hides search ads, sponsored listings, and content recommendation feeds.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extCosmetic"
+              aria-label="Extended page cleanup" /><span></span></span></label
+        ><label class="settings-row"
+          ><span class="settings-copy"
+            ><strong
+              >Advanced YouTube cleaner <span class="pill">Experimental</span></strong
+            >
+            <p>Strips ad segments from player responses and auto-skips unskippable video ads.</p></span
+          ><span class="toggle"
+            ><input
+              type="checkbox"
+              data-setting="extYouTube"
+              aria-label="Advanced YouTube cleaner" /><span></span></span
+        ></label>
+      </section>
+      <section class="settings-section">
         <h2>Allowed websites</h2>
         <p class="section-intro">
           Allow a domain and its subdomains through
-          <strong>all</strong> TinyShield filters, including adult and gambling
+          <strong>all</strong> TinyShield filters, including adult, gambling, and extensive
           blocking. Add only websites you trust.
         </p>
         <form id="allow-form" class="allow-form">
@@ -158,7 +248,7 @@
           referrerpolicy="no-referrer"
           >GZVS on GitHub</a
         ><a href="mailto:zsgeorgios@icloud.com">Contact</a
-        ><span>Version 3.1.0</span>
+        ><span>Version 3.2.0</span>
       </footer>
     </main>
     <script type="module" src="controls.js"></script>

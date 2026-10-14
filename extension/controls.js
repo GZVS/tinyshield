@@ -19,9 +19,13 @@ function feedback(message, error = false) {
 }
 function render() {
   document.querySelectorAll("input[data-setting]").forEach((input) => {
-    input.checked = settings[input.dataset.setting];
+    const key = input.dataset.setting;
+    input.checked = Boolean(settings[key]);
+    const isExtSub = key.startsWith("ext") && key !== "extensiveEnabled";
     input.disabled =
-      busy || (!settings.enabled && input.dataset.setting !== "enabled");
+      busy ||
+      (!settings.enabled && key !== "enabled") ||
+      (isExtSub && !settings.extensiveEnabled);
   });
   if ($("protection")) {
     const active =
@@ -31,7 +35,8 @@ function render() {
         settings.youtubeEnabled ||
         settings.adultEnabled ||
         settings.gamblingEnabled ||
-        settings.cosmeticEnabled);
+        settings.cosmeticEnabled ||
+        settings.extensiveEnabled);
     $("protection").dataset.active = String(active);
     $("protection").setAttribute("aria-pressed", String(settings.enabled));
     $("protection").setAttribute(
@@ -110,7 +115,7 @@ document.querySelectorAll("input[data-setting]").forEach((input) => {
     const checked = input.checked;
     if (
       checked &&
-      ["adultEnabled", "gamblingEnabled", "cosmeticEnabled"].includes(key)
+      ["adultEnabled", "gamblingEnabled", "cosmeticEnabled", "extensiveEnabled"].includes(key)
     ) {
       // Request inside the user gesture; deferring this loses Chrome's permission gesture.
       busy = true;

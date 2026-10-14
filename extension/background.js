@@ -5,28 +5,68 @@ import {
 import { testStateKey, TESTS, sameRulesets, blockingChecks } from "./diagnostics-core.js";
 
 const COSMETIC_SCRIPT_ID = "tinyshield-page-cleanup";
+const EXT_COSMETIC_SCRIPT_ID = "tinyshield-ext-cosmetic";
+const EXT_YOUTUBE_SCRIPT_ID = "tinyshield-ext-youtube";
 const PRIVATE_WINDOW = Boolean(chrome.extension?.inIncognitoContext);
 const TEST_STATE_KEY = testStateKey(PRIVATE_WINDOW);
 let queue = Promise.resolve();
 
-async function syncCosmeticScript(settings, hasAccess) {
-  const scripts = await chrome.scripting.getRegisteredContentScripts({ ids: [COSMETIC_SCRIPT_ID] });
-  const shouldRun = settings.enabled && settings.cosmeticEnabled && hasAccess;
-  if (shouldRun && scripts.length === 0) {
-    await chrome.scripting.registerContentScripts([{
+async function syncContentScripts(settings, hasAccess) {
+  const registered = await chrome.scripting.getRegisteredContentScripts();
+  const existingIds = new Set(registered.map((s) => s.id));
+  const toRegister = [];
+  const toUnregister = [];
+
+  // 1. Standard cosmetic cleanup
+  const shouldRunCosmetic = settings.enabled && settings.cosmeticEnabled && hasAccess;
+  if (shouldRunCosmetic && !existingIds.has(COSMETIC_SCRIPT_ID)) {
+    toRegister.push({
       id: COSMETIC_SCRIPT_ID, matches: WEBSITE_ORIGINS,
       css: ["cosmetic.css"], js: ["cosmetic.js"],
       runAt: "document_start", persistAcrossSessions: true,
-    }]);
-  } else if (!shouldRun && scripts.length > 0) {
-    await chrome.scripting.unregisterContentScripts({ ids: [COSMETIC_SCRIPT_ID] });
+    });
+  } else if (!shouldRunCosmetic && existingIds.has(COSMETIC_SCRIPT_ID)) {
+    toUnregister.push(COSMETIC_SCRIPT_ID);
+  }
+
+  // 2. Extended cosmetic cleanup
+  const shouldRunExtCosmetic = settings.enabled && settings.extensiveEnabled && settings.extCosmetic !== false && hasAccess;
+  if (shouldRunExtCosmetic && !existingIds.has(EXT_COSMETIC_SCRIPT_ID)) {
+    toRegister.push({
+      id: EXT_COSMETIC_SCRIPT_ID, matches: WEBSITE_ORIGINS,
+      css: ["ext-cosmetic.css"], js: ["ext-cosmetic.js"],
+      runAt: "document_start", persistAcrossSessions: true,
+    });
+  } else if (!shouldRunExtCosmetic && existingIds.has(EXT_COSMETIC_SCRIPT_ID)) {
+    toUnregister.push(EXT_COSMETIC_SCRIPT_ID);
+  }
+
+  // 3. Extended YouTube helper (experimental)
+  const shouldRunExtYouTube = settings.enabled && settings.extensiveEnabled && settings.extYouTube === true && hasAccess;
+  if (shouldRunExtYouTube && !existingIds.has(EXT_YOUTUBE_SCRIPT_ID)) {
+    toRegister.push({
+      id: EXT_YOUTUBE_SCRIPT_ID, matches: ["*://*.youtube.com/*"],
+      js: ["ext-youtube.js"],
+      runAt: "document_start", persistAcrossSessions: true,
+    });
+  } else if (!shouldRunExtYouTube && existingIds.has(EXT_YOUTUBE_SCRIPT_ID)) {
+    toUnregister.push(EXT_YOUTUBE_SCRIPT_ID);
+  }
+
+  if (toUnregister.length > 0) {
+    await chrome.scripting.unregisterContentScripts({ ids: toUnregister });
+  }
+  if (toRegister.length > 0) {
+    await chrome.scripting.registerContentScripts(toRegister);
   }
 }
 
 async function applySettings(settings) {
   const hasAccess = await chrome.permissions.contains({ origins: WEBSITE_ORIGINS });
-  if (!hasAccess && (settings.adultEnabled || settings.gamblingEnabled || settings.cosmeticEnabled)) {
-    throw new Error("Website access is needed for site blocking and page cleanup. Enable the feature again to grant access.");
+  const needsAccess = settings.adultEnabled || settings.gamblingEnabled || settings.cosmeticEnabled ||
+    (settings.extensiveEnabled && (settings.extThreats !== false || settings.extCosmetic !== false || settings.extYouTube === true));
+  if (!hasAccess && needsAccess) {
+    throw new Error("Website access is needed for site blocking, security protection and page cleanup. Enable the feature again to grant access.");
   }
   const expected = enabledRulesets(settings, hasAccess);
   const rules = await chrome.declarativeNetRequest.getDynamicRules();
@@ -45,7 +85,7 @@ async function applySettings(settings) {
   if (!sameRulesets(actual, expected)) {
     throw new Error("The browser did not activate the requested filters. Open Test blocking and click Repair filters.");
   }
-  await syncCosmeticScript(settings, hasAccess);
+  await syncContentScripts(settings, hasAccess);
   return actual;
 }
 
@@ -62,6 +102,11 @@ async function initialize() {
     settings.adultEnabled = false;
     settings.gamblingEnabled = false;
     settings.cosmeticEnabled = false;
+    if (settings.extensiveEnabled) {
+      settings.extThreats = false;
+      settings.extCosmetic = false;
+      settings.extYouTube = false;
+    }
   }
   const rulesets = await applySettings(settings);
   await chrome.storage.local.set({ [SETTINGS_KEY]: settings, [STATUS_KEY]: { ok: true, rulesets } });
@@ -96,7 +141,7 @@ async function getDiagnostics(settings, status) {
 }
 
 async function runPageCheck(category, sender) {
-  if (!Object.hasOwn(TESTS, category)) throw new Error("Choose adult or gambling page loading to check.");
+  if (!Object.hasOwn(TESTS, category)) throw new Error("Choose adult, gambling or security page loading to check.");
   const tab = await chrome.tabs.create({ url: "about:blank", ...(Number.isInteger(sender.tab?.windowId) ? { windowId: sender.tab.windowId } : {}) });
   const stored = await chrome.storage.session.get(TEST_STATE_KEY);
   const tests = stored[TEST_STATE_KEY] || {};
@@ -113,9 +158,9 @@ async function runPageCheck(category, sender) {
 }
 
 async function runBlockingTest(category, settings, status, sender) {
-  if (!Object.hasOwn(TESTS, category)) throw new Error("Choose adult or gambling blocking to test.");
+  if (!Object.hasOwn(TESTS, category)) throw new Error("Choose adult, gambling or security blocking to test.");
   const spec = TESTS[category];
-  if (!spec) throw new Error("Choose adult or gambling blocking to test.");
+  if (!spec) throw new Error("Choose adult, gambling or security blocking to test.");
   const diagnostics = await getDiagnostics(settings, status);
   if (!diagnostics.categories[category].ready) throw new Error(diagnostics.categories[category].detail);
   // Store only a reserved test tab, never a user's visited URL.

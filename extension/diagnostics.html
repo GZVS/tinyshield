@@ -14,7 +14,7 @@
       </header>
       <section class="settings-section">
         <h2>Before you test</h2>
-        <p class="section-intro">Enable adult and gambling blocking in Settings, grant website access, and keep Protection on.</p>
+        <p class="section-intro">Enable site blocking and extensive protection in Settings, grant website access, and keep Protection on.</p>
         <ul id="health-checks" class="health-checks"><li>Checking your browser…</li></ul>
         <div class="test-actions">
           <a class="button secondary" href="options.html">Settings</a>
@@ -35,6 +35,11 @@
           <button class="button secondary" data-page-test="gambling" type="button">Check gambling page</button>
           <p id="gambling-page-result" class="test-result" role="status" aria-live="polite">Not tested</p>
         </article>
+        <article class="test-card">
+          <h3>Dangerous site blocked page</h3>
+          <button class="button secondary" data-page-test="security" type="button">Check security page</button>
+          <p id="security-page-result" class="test-result" role="status" aria-live="polite">Not tested</p>
+        </article>
       </section>
       <section class="settings-section">
         <h2>Try each blocked page</h2>
@@ -52,6 +57,13 @@
           <p id="gambling-ready" class="section-intro">Checking…</p>
           <div class="test-actions"><button class="button" data-test="gambling" type="button" disabled>Test gambling blocking</button><a class="button secondary" href="blocked-gambling.html?preview=1" target="_blank" rel="noopener">Preview page</a></div>
           <p id="gambling-result" class="test-result" role="status" aria-live="polite">Not tested</p>
+        </article>
+        <article class="test-card">
+          <h3>Dangerous site</h3>
+          <p><code>security.tinyshield.test</code></p>
+          <p id="security-ready" class="section-intro">Checking…</p>
+          <div class="test-actions"><button class="button" data-test="security" type="button" disabled>Test security blocking</button><a class="button secondary" href="blocked-security.html?preview=1" target="_blank" rel="noopener">Preview page</a></div>
+          <p id="security-result" class="test-result" role="status" aria-live="polite">Not tested</p>
         </article>
       </section>
       <section class="settings-section note"><p>If a test tab shows a browser error or stays blank, return here and check its result. Preview opens the local page directly; it checks appearance without proving a website redirect. Another blocker or a browser policy can override TinyShield.</p></section>

@@ -10,6 +10,15 @@ export const DEFAULTS = Object.freeze({
   youtubeEnabled: false,
   adultEnabled: false,
   gamblingEnabled: false,
+  extensiveEnabled: false,
+  extAds: true,
+  extTrackers: true,
+  extThreats: true,
+  extAnnoyances: true,
+  extUrlCleaning: true,
+  extSurrogates: true,
+  extCosmetic: true,
+  extYouTube: false,
   allowedSites: [],
 });
 export const RULESET_IDS = [
@@ -18,6 +27,12 @@ export const RULESET_IDS = [
   "youtube_ads",
   "adult_sites",
   "gambling_sites",
+  "ext_ads",
+  "ext_trackers",
+  "ext_threats",
+  "ext_annoyances",
+  "ext_privacy",
+  "ext_surrogates",
 ];
 
 export function normalizeDomain(input) {
@@ -56,6 +71,7 @@ export function normalizeDomain(input) {
     throw new Error("Enter a valid website domain, like example.com.");
   return hostname;
 }
+
 export function cleanSettings(value = DEFAULTS) {
   const sites = [];
   for (const input of Array.isArray(value.allowedSites)
@@ -78,19 +94,39 @@ export function cleanSettings(value = DEFAULTS) {
     youtubeEnabled: value.youtubeEnabled === true,
     adultEnabled: value.adultEnabled === true,
     gamblingEnabled: value.gamblingEnabled === true,
+    extensiveEnabled: value.extensiveEnabled === true,
+    extAds: value.extAds !== false,
+    extTrackers: value.extTrackers !== false,
+    extThreats: value.extThreats !== false,
+    extAnnoyances: value.extAnnoyances !== false,
+    extUrlCleaning: value.extUrlCleaning !== false,
+    extSurrogates: value.extSurrogates !== false,
+    extCosmetic: value.extCosmetic !== false,
+    extYouTube: value.extYouTube === true,
     allowedSites: sites,
   };
 }
+
 export function enabledRulesets(settings, hasAccess) {
   if (!settings.enabled) return [];
-  return [
+  const rulesets = [
     ...(settings.adsEnabled ? ["web_ads"] : []),
     ...(settings.trackersEnabled ? ["trackers"] : []),
     ...(settings.youtubeEnabled ? ["youtube_ads"] : []),
     ...(settings.adultEnabled && hasAccess ? ["adult_sites"] : []),
     ...(settings.gamblingEnabled && hasAccess ? ["gambling_sites"] : []),
   ];
+  if (settings.extensiveEnabled) {
+    if (settings.extAds !== false) rulesets.push("ext_ads");
+    if (settings.extTrackers !== false) rulesets.push("ext_trackers");
+    if (settings.extThreats !== false && hasAccess) rulesets.push("ext_threats");
+    if (settings.extAnnoyances !== false) rulesets.push("ext_annoyances");
+    if (settings.extUrlCleaning !== false) rulesets.push("ext_privacy");
+    if (settings.extSurrogates !== false) rulesets.push("ext_surrogates");
+  }
+  return rulesets;
 }
+
 export function buildAllowRules(sites) {
   return sites.slice(0, MAX_ALLOWED_SITES).flatMap((domain, index) => [
     {

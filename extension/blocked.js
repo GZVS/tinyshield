@@ -14,7 +14,7 @@ if (!preview) {
   const shield = document.querySelector(".large-shield");
   shield.decode().then(async () => {
     const rendered = document.querySelector("h1")?.textContent === "This site is blocked"
-      && document.querySelector(".reason")?.textContent.trim() === (category === "adult" ? "Adult content" : "Gambling")
+      && document.querySelector(".reason")?.textContent.trim() === (category === "adult" ? "Adult content" : category === "gambling" ? "Gambling" : "Dangerous site")
       && document.getElementById("github-link")?.href === "https://github.com/GZVS"
       && shield.naturalWidth > 0;
     await chrome.runtime.sendMessage({ type: "blocked-page-ready", category, rendered, mode: pageCheck ? "page" : "redirect" });

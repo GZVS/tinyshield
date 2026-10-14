@@ -2,9 +2,9 @@
   "manifest_version": 3,
   "name": "TinyShield \u2014 Ads & Website Blocker",
   "short_name": "TinyShield",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "incognito": "split",
-  "minimum_chrome_version": "116",
+  "minimum_chrome_version": "120",
   "description": "Block common ads and trackers, plus adult and gambling sites. Local filtering, simple controls, and optional page cleanup.",
   "permissions": [
     "declarativeNetRequest",
@@ -58,6 +58,36 @@
         "id": "gambling_sites",
         "enabled": false,
         "path": "rules-gambling.json"
+      },
+      {
+        "id": "ext_ads",
+        "enabled": false,
+        "path": "rules-ext-ads.json"
+      },
+      {
+        "id": "ext_trackers",
+        "enabled": false,
+        "path": "rules-ext-trackers.json"
+      },
+      {
+        "id": "ext_threats",
+        "enabled": false,
+        "path": "rules-ext-threats.json"
+      },
+      {
+        "id": "ext_annoyances",
+        "enabled": false,
+        "path": "rules-ext-annoyances.json"
+      },
+      {
+        "id": "ext_privacy",
+        "enabled": false,
+        "path": "rules-ext-privacy.json"
+      },
+      {
+        "id": "ext_surrogates",
+        "enabled": false,
+        "path": "rules-ext-surrogates.json"
       }
     ]
   },
@@ -76,9 +106,16 @@
       "resources": [
         "blocked-adult.html",
         "blocked-gambling.html",
+        "blocked-security.html",
         "ui.css",
         "blocked.js",
-        "assets/shield.svg"
+        "assets/shield.svg",
+        "assets/extensive.svg",
+        "surrogates/google-analytics.js",
+        "surrogates/googletagmanager.js",
+        "surrogates/gpt.js",
+        "surrogates/adsbygoogle.js",
+        "surrogates/apstag.js"
       ],
       "matches": [
         "http://*/*",
