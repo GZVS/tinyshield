@@ -12,7 +12,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 
 def package(target, output):
-    manifest = json.loads((ROOT / 'extension' / 'manifest.json').read_text())
+    manifest = json.loads((ROOT / 'extension' / 'manifest.json').read_text(encoding='utf-8'))
     version = manifest['version']
     manifest['version_name'] = f"{version} ({'Microsoft Edge' if target == 'edge' else 'Chrome'})"
     output.mkdir(parents=True, exist_ok=True)

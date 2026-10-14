@@ -11,8 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 EXT = ROOT / 'extension'
 
 def main():
-    manifest = json.loads((EXT / 'manifest.json').read_text())
-    assert manifest['version'] == json.loads((ROOT / 'package.json').read_text())['version']
+    manifest = json.loads((EXT / 'manifest.json').read_text(encoding='utf-8'))
+    assert manifest['version'] == json.loads((ROOT / 'package.json').read_text(encoding='utf-8'))['version']
     assert len(manifest['description']) <= 132
     assert manifest['manifest_version'] == 3
     assert manifest['incognito'] == 'split', 'Blocked pages require split private-window support'
@@ -27,7 +27,7 @@ def main():
     total = 0
     for ruleset in manifest['declarative_net_request']['rule_resources']:
         paths.append(ruleset['path'])
-        rules = json.loads((EXT / ruleset['path']).read_text())
+        rules = json.loads((EXT / ruleset['path']).read_text(encoding='utf-8'))
         if ruleset['id'] in ['adult_sites', 'gambling_sites']:
             category = ruleset['id'].removesuffix('_sites')
             assert any(category + '.tinyshield.test' in rule['condition'].get('requestDomains', []) for rule in rules)
@@ -50,7 +50,7 @@ def main():
         total += len(rules)
     assert total < 30000
     for page in EXT.glob('*.html'):
-        text = page.read_text()
+        text = page.read_text(encoding='utf-8')
         assert '<script>' not in text and 'onclick=' not in text
         for attribute, value in re.findall(r'(src|href)="([^"]+)"', text):
             if not value.startswith(('https:', 'mailto:', '#')):
@@ -62,7 +62,7 @@ def main():
         if has_node:
             subprocess.run(['node', '--check', str(js)], check=True)
     for category in ['adult', 'gambling', 'security']:
-        page = (EXT / f'blocked-{category}.html').read_text()
+        page = (EXT / f'blocked-{category}.html').read_text(encoding='utf-8')
         assert '<h1>This site is blocked</h1>' in page
         assert f'data-category="{category}"' in page
         assert 'id="github-link"' in page and 'https://github.com/GZVS' in page
