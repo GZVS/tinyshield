@@ -2,7 +2,7 @@
 
 Finish the actual Edge checks in `docs/EDGE.md` and `docs/BLOCKING_TESTS.md` before submission. Source/unit checks alone do not verify Edge's permission prompts or network redirect.
 
-In Microsoft Partner Center, upload **tinyshield-v3.1.1-edge.zip**. Its manifest is at the root. Use the common `listing/` description/privacy/permission copy, support email `zsgeorgios@icloud.com`, developer profile `https://github.com/GZVS` and a publicly verified URL for the supplied policy. The description explains local filtering, optional category access, exceptions, test controls and the experimental YouTube limitation.
+In Microsoft Partner Center, upload **tinyshield-v3.1.1-edge.zip**. Its manifest is at the root. Use the common `listing/` description/privacy/permission copy, support email `gzvsDev@icloud.com`, developer profile `https://github.com/GZVS` and a publicly verified URL for the supplied policy. The description explains local filtering, optional category access, exceptions, test controls and the experimental YouTube limitation.
 
 | Asset | Supplied file |
 | --- | --- |

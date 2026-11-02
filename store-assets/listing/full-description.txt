@@ -20,7 +20,7 @@ Zenith Guard operates completely offline on your device.
 
 DEVELOPER & SUPPORT
 • Developer: GZVS (GZ - Your friendly developer)
-• Contact & Support: zsgeorgios@icloud.com
+• Contact & Support: gzvsDev@icloud.com
 • GitHub: https://github.com/GZVS
 • Support Development: https://www.paypal.com/paypalme/Zacharidis
 
