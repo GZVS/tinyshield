@@ -3,7 +3,7 @@
 Effective date: 10 October 2026  
 Extension version: 3.1.1  
 Developer: GZVS — GZ - Your friendly developer  
-Contact: zsgeorgios@icloud.com
+Contact: gzvsDev@icloud.com
 
 ## What TinyShield does
 TinyShield blocks selected ad and tracker requests using packaged Chromium Declarative Net Request rules. Optional adult and gambling filters match the hostname of top-level website navigations against bundled domain lists and redirect matching requests to a local TinyShield blocked-site page before the website loads. Optional page cleanup hides common ad placeholders with packaged CSS. An optional YouTube network filter is experimental and best effort.
@@ -40,4 +40,4 @@ TinyShield contains no remotely executed code and has a restrictive extension Co
 This document will be updated when TinyShield's data handling changes. The effective date and extension version identify the policy applicable to a release. Updates are supplied with the extension and at the public policy URL used in its store listing.
 
 ## Contact
-For privacy questions, email zsgeorgios@icloud.com. Do not include private information in public GitHub issues.
+For privacy questions, email gzvsDev@icloud.com. Do not include private information in public GitHub issues.

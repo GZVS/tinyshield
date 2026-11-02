@@ -13,7 +13,7 @@ Upload the source-folder contents, including the license and third-party notices
 
 ## 3. Host the privacy policy
 
-Copy the supplied `privacy.md` to your privacy-policy repository (e.g. `extensions/zenith-guard/privacy.md` or GitHub Pages). Open that file's public URL while signed out, then copy its exact URL. The policy uses the support email: zsgeorgios@icloud.com.
+Copy the supplied `privacy.md` to your privacy-policy repository (e.g. `extensions/zenith-guard/privacy.md` or GitHub Pages). Open that file's public URL while signed out, then copy its exact URL. The policy uses the support email: gzvsDev@icloud.com.
 
 ## 4. Upload the extension ZIP
 
@@ -28,7 +28,7 @@ Review the item identity/signing behavior when updating an existing extension; m
 - Full description: `listing/full-description.txt`.
 - Suggested category: choose the current dashboard category that best describes browser filtering/productivity.
 - Language: English for the supplied listing and UI.
-- Support email: zsgeorgios@icloud.com.
+- Support email: gzvsDev@icloud.com.
 - Website/support profile: https://github.com/GZVS, or the verified repository URL after you create it.
 - Privacy policy: exact public URL verified in step 3.
 

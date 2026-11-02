@@ -95,7 +95,7 @@ Create a public GitHub repository such as `GZVS/TinyShield`, then upload this so
 ## Privacy and support
 
 [Privacy policy](privacy.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)  
-Support/privacy email: zsgeorgios@icloud.com  
+Support/privacy email: gzvsDev@icloud.com  
 Optional donations: https://www.paypal.com/paypalme/Zacharidis
 
 All features are free. No payment or donation is required to use the filters.
